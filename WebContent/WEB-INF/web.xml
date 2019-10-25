@@ -11,11 +11,26 @@
   </welcome-file-list>
   
   <servlet>
+  	<servlet-name>DBCPInit</servlet-name>
+  	<servlet-class>com.java.db.DBCPInit</servlet-class>
+  	<init-param>
+  		<param-name>jdbcDriver</param-name>
+  		<param-value>oracle.jdbc.driver.OracleDriver</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet>
   	<servlet-name>FrontController</servlet-name>
   	<servlet-class>com.java.controller.FrontController</servlet-class>
+  	<init-param>
+  		<param-name>configFile</param-name>
+  		<param-value>\WEB-INF\commandURI.properties</param-value>
+  	</init-param>
   </servlet>
   <servlet-mapping>
   	<servlet-name>FrontController</servlet-name>
   	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  
 </web-app>
