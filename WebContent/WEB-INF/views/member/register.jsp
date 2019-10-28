@@ -19,11 +19,12 @@
 			</p>
 		</div>
 		<div>
-			<form action="${root}/member/registerOk.do" method="post" onsubmit="return regusterForm(this)">
+			<form action="${root}/member/registerOk.do" method="post" onsubmit="return registerForm(this)" name="createForm">
 				<div class="item">
 					<div>아이디</div>
 					<div>
-						*<input type="text" name="id"/> <input type="button" value="아이디중복" name="idcheck"/>
+						*<input type="text" name="id"/> <input type="button" value="아이디중복" onclick="idCheck(createForm, '${root}')" />
+						<input type="hidden" name="idChecked" value="0"/>
 					</div>
 				</div>
 				<div class="item">
@@ -47,7 +48,7 @@
 				<div class="item">
 					<div>주민번호</div>
 					<div>
-						*<input type="text" name="jumin1" />-<input type="text" name="jumin2" />
+						*<input type="text" name="jumin1" maxlength="6"/>-<input type="text" name="jumin2" maxlength="7"/>
 					</div>
 				</div>
 				<div class="item">
@@ -59,7 +60,7 @@
 				<div class="item">
 					<div>우편번호</div>
 					<div>
-						<input type="text" name="zipcode" /> <input type="button" value="우편번호검색" />
+						<input type="text" name="zipcode" readonly="readonly"/> <input type="button" value="우편번호검색" onclick="zipcodeRead('${root}')" />
 					</div>
 				</div>
 				<div class="item">
@@ -72,6 +73,7 @@
 					<div>직업</div>
 					<div>
 						<select name="job">
+							<option value=""></option>
 							<option value="백수">백수</option>
 							<option value="학생">학생</option>
 							<option value="직장인">직장인</option>
@@ -88,10 +90,11 @@
 				<div class="item" style="border-bottom: 2px solid black;">
 					<div>관심분야</div>
 					<div>
-						<input type="checkbox" name="interest" value="경제" id="ch1" /> <label for="ch1">경제</label> 
-						<input type="checkbox" name="interest" value="IT" id="ch2" /> <label for="ch2">IT</label>
-						<input type="checkbox" name="interest" value="음악" id="ch3" /> <label for="ch3">음악</label>
-						<input type="checkbox" name="interest" value="미술" id="ch4" /> <label for="ch4">미술</label>
+						<input type="checkbox" name="interestValue" value="경제" id="ch1" /> <label for="ch1">경제</label> 
+						<input type="checkbox" name="interestValue" value="IT" id="ch2" /> <label for="ch2">IT</label>
+						<input type="checkbox" name="interestValue" value="음악" id="ch3" /> <label for="ch3">음악</label>
+						<input type="checkbox" name="interestValue" value="미술" id="ch4" /> <label for="ch4">미술</label>
+						<input type="hidden" name="interest" />
 					</div>
 				</div>
 				<div class="item-button">

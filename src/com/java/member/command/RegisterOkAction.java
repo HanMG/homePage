@@ -12,7 +12,7 @@ import com.java.member.dto.MemberDto;
 /**
  * @author : HMG (HANMOONGOO)
  * @Date : 2019. 10. 25.
- * @Detail : 
+ * @Detail : 회원에  쓰이는 DTO
  */
 public class RegisterOkAction implements CommandAction {
 
@@ -42,9 +42,8 @@ public class RegisterOkAction implements CommandAction {
 		
 		
 		logger.info(logMsg+memberDto.toString());
-		
-		MemberDao memberDao = new MemberDao();
-		int check = memberDao.insert(memberDto);
+				
+		int check = MemberDao.getInstance().insert(memberDto);
 		logger.info(logMsg + check);
 		request.setAttribute("check", check);
 		return "/WEB-INF/views/member/registerOk.jsp";
