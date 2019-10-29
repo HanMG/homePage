@@ -10,8 +10,11 @@
 </head>
 <body>
 	<c:if test="${memberLevel != null }">
+		<c:set var="id" value="${id}" scope="session"/>		
+		<c:set var="memberLevel" value="${memberLevel}" scope="session"></c:set>
 		<script>
 			alert("로그인 되었습니다.");			
+			location.href="${root}/member/main.do";
 		</script>
 	</c:if>
 	<c:if test="${memberLevel == null }">

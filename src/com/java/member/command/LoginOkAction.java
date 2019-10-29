@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.java.command.CommandAction;
 import com.java.member.dao.MemberDao;
 
-public class LoginActionOk implements CommandAction {
+public class LoginOkAction implements CommandAction {
 
 	@Override
 	public String proRequest(HttpServletRequest request, HttpServletResponse response) throws Throwable {

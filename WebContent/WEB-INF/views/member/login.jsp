@@ -8,7 +8,8 @@
 <meta charset="UTF-8">
 <title>로그인</title>
 </head>
-<body>
+<body>	
+	<jsp:include page="../../../index.jsp"></jsp:include>
 	<div align="center">
 		<form action="${root}/member/loginOk.do" method="post">
 			<label for="">아이디</label>

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <html>
@@ -12,6 +11,7 @@
 <script src="${root}/javascript/member/register.js"></script>
 </head>
 <body>
+	<jsp:include page="../../../index.jsp"></jsp:include>
 	<div class="container">
 		<div>
 			<p>
@@ -23,8 +23,7 @@
 				<div class="item">
 					<div>아이디</div>
 					<div>
-						*<input type="text" name="id"/> <input type="button" value="아이디중복" onclick="idCheck(createForm, '${root}')" />
-						<input type="hidden" name="idChecked" value="0"/>
+						*<input type="text" name="id"/> <input type="button" value="아이디중복" onclick="idCheck(createForm, '${root}')" />						
 					</div>
 				</div>
 				<div class="item">
@@ -102,6 +101,6 @@
 				</div>
 			</form>
 		</div>
-	</div>
+	</div>	
 </body>
 </html>

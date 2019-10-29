@@ -1,16 +1,11 @@
 // form 넘어 갈때 걸리는 함수
 function registerForm(obj) {
+	
 /*	if(obj.id.value == ""){
 		alert("아이디를 입력해주세요.");
 		obj.id.focus();
 		return false;
-	}
-	
-	if(obj.idChecked.value == 0){
-		alert("아이디 중복체크를 해주세요.");
-		obj.id.focus();
-		return false;
-	}
+	}	
 	
 	if(obj.pwd.value == ""){
 		alert("비밀번호를 입력해주세요.");
@@ -31,24 +26,25 @@ function registerForm(obj) {
 		return false;
 	}
 	
+	
 	if(obj.jumin1.value == ""){
 		alert("주민번호 앞자리를 입력해주세요.");
 		obj.jumin1.focus();
 		return false;		
 	}
 	else if(obj.jumin1.value.length != 6){
-		alert("주민번호 앞자리를 확인해주세요.");
+		alert("주민번호 앞자리를 확인해주세요. (6자리)");
 		obj.jumin1.focus();
 		return false;
 	}
 	
 	
 	if(obj.jumin2.value == ""){
-		alert("주민번호 뒷자리를 입력해주세요. (6자리)");
+		alert("주민번호 뒷자리를 입력해주세요.");
 		obj.jumin2.focus();
 		return false;
 	}
-	else if(obj.jumin1.value.length != 7){
+	else if(obj.jumin2.value.length != 7){
 		alert("주민번호 뒷자리를 확인해주세요. (7자리)");
 		obj.jumin2.focus();
 		return false;
@@ -76,9 +72,9 @@ function registerForm(obj) {
 		alert("직업을 선택해주세요.");
 		obj.job.focus();
 		return false;
-	}
+	}*/
 	
-	
+	// 이메일수신 체크 
 	let check = false;
 	for (let i = 0; i < obj.mailing.length; i++) {
 		if (obj.mailing[i].checked == true){
@@ -91,9 +87,10 @@ function registerForm(obj) {
 		alert("반드시 이메일수신 선택하세요.");
 		return false;
 	}
-
+	
+	// 관심사 체크 , interestValue들로 부터 값을 받아 하나의 문자열로 만든뒤 interest로 넘겨줌	
 	let str = "";
-	let cnt = 0;
+	let cnt = 0; // 널 체크
 	for (let i = 0; i < obj.interestValue.length; i++) {
 		if (obj.interestValue[i].checked == true) {
 			str += obj.interestValue[i].value + ",";
@@ -101,12 +98,12 @@ function registerForm(obj) {
 		}		
 	}
 	
-	obj.interest.value=str;
+	obj.interest.value=str;	
 	
 	if (cnt == 0) {
 		alert("반드시 하나는 체크하세요.");
 		return false;
-	}*/
+	}
 
 }
 

@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.java.db.ConnectionProvider;
 import com.java.db.jdbcUtil;
@@ -153,5 +154,133 @@ public class MemberDao {
 		}		
 				
 		return value;		
+	}
+	
+	
+	public MemberDto update(String id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		MemberDto memberDto = null;
+		
+		try {
+			String sql = "select * from member WHERE id=?";
+			conn = ConnectionProvider.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				memberDto = new MemberDto();
+				memberDto.setNum(rs.getInt("num"));
+				memberDto.setId(rs.getString("id"));
+				memberDto.setPassword(rs.getString("password"));
+				memberDto.setName(rs.getString("name"));
+				memberDto.setJumin1(rs.getString("jumin1"));
+				memberDto.setJumin2(rs.getString("jumin2"));
+				memberDto.setEmail(rs.getString("email"));
+				
+				memberDto.setZipcode(rs.getString("zipcode"));
+				memberDto.setAddress(rs.getString("address"));
+				memberDto.setJob(rs.getString("job"));
+				memberDto.setMailing(rs.getString("mailing"));
+				memberDto.setInterest(rs.getString("interest"));
+				memberDto.setMemberLevel(rs.getString("member_level"));
+				memberDto.setRegisterDate(new Date(rs.getTimestamp("register_date").getTime()));
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			jdbcUtil.close(rs);
+			jdbcUtil.close(pstmt);
+			jdbcUtil.close(conn);
+		}
+		
+		return memberDto;
+	}
+
+	public int updateOk(MemberDto memberDto) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;		
+		int check = 0;
+		
+		try {
+			String sql = "UPDATE member SET password = ?, email=?, zipcode=?, address=?, job=?, mailing=?, interest=? WHERE num=?";
+			conn = ConnectionProvider.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memberDto.getPassword());
+			pstmt.setString(2, memberDto.getEmail());
+			pstmt.setString(3, memberDto.getZipcode());
+			pstmt.setString(4, memberDto.getAddress());
+			pstmt.setString(5, memberDto.getJob());
+			pstmt.setString(6, memberDto.getMailing());
+			pstmt.setString(7, memberDto.getInterest());
+			pstmt.setInt(8, memberDto.getNum());
+			
+			check = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			jdbcUtil.close(pstmt);
+			jdbcUtil.close(conn);
+		}
+		return check;
+	}
+
+	public MemberDto dropout(String id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		MemberDto memberDto = null;
+		
+		try {
+			String sql = "select * from member WHERE id=?";
+			conn = ConnectionProvider.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				memberDto = new MemberDto();	
+				memberDto.setNum(rs.getInt("num"));
+				memberDto.setId(rs.getString("id"));
+				memberDto.setPassword(rs.getString("password"));				
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			jdbcUtil.close(rs);
+			jdbcUtil.close(pstmt);
+			jdbcUtil.close(conn);
+		}
+		
+		return memberDto;	
+	}
+
+	public int dropoutOk(MemberDto memberDto) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;		
+		int check = 0;
+		
+		try {
+			String sql = "DELETE FROM member WHERE num = ? AND id = ? AND password = ?";
+			conn = ConnectionProvider.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberDto.getNum());
+			pstmt.setString(2, memberDto.getId());
+			pstmt.setString(3, memberDto.getPassword());			
+			check = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			jdbcUtil.close(pstmt);
+			jdbcUtil.close(conn);
+		}
+		return check;
 	}
 }

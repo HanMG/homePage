@@ -23,10 +23,7 @@
 			<div align="center">
 				<p>사용가능한 아이디 입니다.</p>
 			</div>
-			<br /><br />
-			<script>
-			opener.createForm.idChecked.value = 1;
-			</script>
+			<br /><br />			
 		</c:if>
 		<input type="button" value="닫기" onclick="self.close()"/>
 	</div>

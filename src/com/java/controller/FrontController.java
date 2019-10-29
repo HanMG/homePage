@@ -19,6 +19,12 @@ import java.util.Properties;
 import java.util.logging.Logger;
 
 /**
+ * @author : HMG (HANMOONGOO)
+ * @Date : 2019. 10. 29.
+ * @Detail : FrontController. request와 Action의 브릿지 
+ */
+
+/**
  * Servlet implementation class FrontController
  */
 
