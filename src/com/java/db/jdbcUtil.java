@@ -25,10 +25,10 @@ public class jdbcUtil {
 		
 	}
 	
-	public static void close(PreparedStatement ptsmt) {
-		if(ptsmt != null) {
+	public static void close(PreparedStatement pstmt) {
+		if(pstmt != null) {
 			try {
-				ptsmt.close();
+				pstmt.close();
 			}
 			catch (SQLException e) {
 				e.printStackTrace();

@@ -4,15 +4,25 @@
 	box-sizing: border-box;
 	margin: 0px;
 }
+a{
+	text-decoration: none;
+}
+
+textarea{
+	border:none;
+	outline: none;
+}
 
 #container {
 	text-align: center;
 	margin: 100px auto;
+	margin-bottom: 20px;
 }
 
-form {
+.form {
 	border: 0px solid red;
 	width: 410px;
+	min-height: 155px;
 	margin: 0 auto;
 }
 
@@ -24,20 +34,36 @@ form {
 	margin: 2px 0px;
 }
 
+.board > span{
+	margin: 10px;
+}
+.content, .box{
+	border-bottom: 10px solid;
+	border-image-source: linear-gradient(45deg, rgb(0, 143, 104),
+		rgb(250, 224, 66));
+	border-image-slice: 1;	
+}
 .content {
 	border: 0px solid yellow;
 	width: 100%;
 	margin: 2px 0px;
+	border-top: 10px solid;
+	
 }
 
 .content > textarea {
 	width: 100%;
 	resize: none;
+	
 }
 
-.box {
-	border: 10px solid;
-	border-image-source: linear-gradient(45deg, rgb(0, 143, 104),
-		rgb(250, 224, 66));
-	border-image-slice: 1;
+
+.txtleft{
+	text-align: left;
+	min-height:79px;
+}
+
+.paging{
+	text-align: center;
+	margin: 10px 0px 100px 0px;
 }

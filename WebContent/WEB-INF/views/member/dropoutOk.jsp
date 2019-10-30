@@ -7,15 +7,16 @@
 <meta charset="UTF-8">
 <title>회원탈퇴</title>
 </head>
-<body>
-	<c:remove var="id" scope="session"/>
-	<c:remove var="memberLevel" scope="session"/>
+<body>	
 	<c:set var="root" value="${pageContext.request.contextPath}"/>
 	<c:out value="${check }"></c:out>
 	<c:if test="${check > 0 }">
+		<c:remove var="id" scope="session"/>
+		<c:remove var="memberLevel" scope="session"/>
 		<script type="text/javascript">
 			alert("탈퇴가 잘 되었습니다.");
 			location.href="${root}/member/main.do";
+			
 		</script>
 	</c:if>
 	<c:if test="${check == 0 }">
