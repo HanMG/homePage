@@ -1,0 +1,9 @@
+1. 방명록 - 유효성 검사 js
+
+2. 트랜젝션 공부 
+
+3. 텍스트에어리어로 넣은 글 - 개행, 빈공간 등등 다 되게 = > pre태그 안에 쓰거나   style="white-space:pre;" 속성을 걸어주면 됨
+
+conn.setAutoCommit(false);
+
+conn.commit;

@@ -8,13 +8,14 @@
 <meta charset="UTF-8">
 <title>방명록</title>
 <link rel="stylesheet" href="${root}/css/guest/write.css" />
+<script src="${root}/javascript/guest/guest.js"></script>
 </head>
 <body>
 	<h3>count: ${count }, currentPage: ${currentPage}, boardSize:${boardSize}</h3>
 	<jsp:include page="../../../index.jsp" />
 	<div id="container">
 		<c:if test="${count == 0 || currentPage == 1 }">
-			<form action="${root }/guest/writeOk.do" method="get" class="form box">
+			<form action="${root }/guest/writeOk.do" method="get" class="form box" onsubmit="return FormCheck(this)">
 				<div class="title">
 					<span>이름</span> <input type="text" name="irum" size="12" /> <span>비밀번호</span> <input type="password" name="pwd" size="12" />
 				</div>
@@ -39,10 +40,10 @@
 					<span><fmt:formatDate value="${guestDto.writeDate}" pattern="yyyy-MM-dd HH:mm:ss"/></span>										
 				</div>
 				<div class="content txtleft">
-					${guestDto.message}
+					<pre>${guestDto.message}</pre>
 				</div>
 				<div class="title" style="text-align: right; padding-right: 8px;">
-					<input type="button" value="수정"/><input type="button" value="삭제"/>
+					<input type="button" value="수정" onclick="javascript:updateCheck('${root}','${guestDto.num}','${currentPage}')"/><input type="button" value="삭제" onclick="javascript:deleteCheck('${root}','${guestDto.num}','${currentPage}')"/>
 				</div>
 			</div>	
 			<br />

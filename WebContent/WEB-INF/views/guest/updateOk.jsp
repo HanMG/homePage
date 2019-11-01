@@ -6,20 +6,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>방명록 작성</title>
+<title>수정 OK</title>
 </head>
 <body>
-	<c:if test="${check > 0 }">
+	<c:if test="${check > 0}">
 		<script>
-			alert("방명록이 작성되었습니다.");
-			location.href="${root}/guest/write.do";
-		</script>
+			alert("수정되었습니다.");
+			location.href="${root}/guest/write.do?pageNumber=${pageNumber}";
+		</script>	
 	</c:if>
-	<c:if test="${check == 0 }">
+	<c:if test="${check == 0}">
 		<script>
-			alert("방명록이 작성되지 않았습니다.");
-			location.href="${root}/guest/write.do";
-		</script>
+			alert("수정되지 않았습니다.");
+			location.href="${root}/guest/write.do?pageNumber=${pageNumber}";
+		</script>	
 	</c:if>
 </body>
 </html>

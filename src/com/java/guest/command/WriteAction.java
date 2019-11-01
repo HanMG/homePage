@@ -25,7 +25,7 @@ public class WriteAction implements CommandAction {
 
 		String pageNumber = request.getParameter("pageNumber"); // get방식으로 받을 페이지 넘버
 
-		if (pageNumber == null) // 첫 번째 일시 
+		if (pageNumber == null) // index에서 첫 클릭시 
 			pageNumber = "1";
 
 		int currentPage = Integer.parseInt(pageNumber); // 1) 요청페이지 1
@@ -44,8 +44,7 @@ public class WriteAction implements CommandAction {
 		if (count > 0) {
 			guestList = GuestDao.getInstance().guestList(starRow, endRow); // 시작번호와 끝번호를 통해 보여질 데이터를 ArrayList로 가져옴
 			logger.info(logMsg +" 데이터 몇개: "+guestList.size());
-		}
-		
+		}		
 		
 		if (guestList != null) {
 			request.setAttribute("count", count);

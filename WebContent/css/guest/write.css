@@ -4,12 +4,13 @@
 	box-sizing: border-box;
 	margin: 0px;
 }
-a{
+
+a {
 	text-decoration: none;
 }
 
-textarea{
-	border:none;
+textarea {
+	border: none;
 	outline: none;
 }
 
@@ -20,50 +21,50 @@ textarea{
 }
 
 .form {
-	border: 0px solid red;
 	width: 410px;
 	min-height: 155px;
 	margin: 0 auto;
 }
 
 .title {
-	border: 0x solid blue;
 	width: 100%;
 	text-align: center;
 	line-height: 40px;
 	margin: 2px 0px;
 }
 
-.board > span{
+.board>span {
 	margin: 10px;
 }
-.content, .box{
-	border-bottom: 10px solid;
-	border-image-source: linear-gradient(45deg, rgb(0, 143, 104),
-		rgb(250, 224, 66));
-	border-image-slice: 1;	
-}
+
 .content {
-	border: 0px solid yellow;
 	width: 100%;
 	margin: 2px 0px;
 	border-top: 10px solid;
-	
+	border-bottom: 10px solid;
+	border-image-source: linear-gradient(45deg, rgb(0, 143, 104),
+		rgb(250, 224, 66));
+	border-image-slice: 1;
 }
 
-.content > textarea {
+.content>textarea {
 	width: 100%;
 	resize: none;
-	
 }
 
+.box {
+	border: 10px solid;
+	border-image-source: linear-gradient(45deg, rgb(0, 143, 104),
+		rgb(250, 224, 66));
+	border-image-slice: 1;
+}
 
-.txtleft{
+.txtleft {
 	text-align: left;
-	min-height:79px;
+	min-height: 79px;
 }
 
-.paging{
+.paging {
 	text-align: center;
 	margin: 10px 0px 100px 0px;
 }

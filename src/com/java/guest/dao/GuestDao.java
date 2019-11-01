@@ -132,5 +132,104 @@ public class GuestDao {
 		
 		return count;
 	}
+
+	public int delete(int num) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int check = 0;
+		try {
+			String sql ="DELETE FROM guest WHERE num = ?";
+			conn = ConnectionProvider.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			check = pstmt.executeUpdate();
 			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			jdbcUtil.close(pstmt);
+			jdbcUtil.close(conn);
+		}
+		
+		
+		return check;
+	}
+
+	public GuestDto update(int num) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		GuestDto guestDto = null;
+		
+		try {
+			String sql ="SELECT * FROM guest WHERE num=?";
+			conn = ConnectionProvider.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				guestDto = new GuestDto();
+				guestDto.setNum(rs.getInt("num"));
+				guestDto.setName(rs.getString("name"));
+				guestDto.setPassword(rs.getString("password"));
+				guestDto.setMessage(rs.getString("message"));
+				guestDto.setWriteDate(new Date(rs.getTimestamp("write_date").getTime()));
+			}			
+		}catch(Exception e) {
+			e.printStackTrace();			
+		}finally {
+			jdbcUtil.close(rs);
+			jdbcUtil.close(pstmt);
+			jdbcUtil.close(conn);
+		}		
+		return guestDto;
+	}
+
+	public int updateOk(GuestDto guestDto) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int check = 0;
+		
+		try {
+			String sql ="UPDATE guest SET password=?, message=? WHERE num=?";
+			conn = ConnectionProvider.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, guestDto.getPassword());
+			pstmt.setString(2, guestDto.getMessage());
+			pstmt.setInt(3, guestDto.getNum());
+			
+			check = pstmt.executeUpdate();			
+				
+		}catch(Exception e) {
+			e.printStackTrace();			
+		}finally {			
+			jdbcUtil.close(pstmt);
+			jdbcUtil.close(conn);
+		}		
+		return check;
+	}
+
+	public int delBoard(int boardNumber) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int check = 0;
+		
+		try {
+			String sql ="DELETE FROM board WHERE board_number= ?";
+			conn = ConnectionProvider.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNumber);
+			check = pstmt.executeUpdate();				
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			jdbcUtil.close(pstmt);
+			jdbcUtil.close(conn);
+		}	
+		
+		return check;
+	}		
 }
