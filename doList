@@ -7,3 +7,24 @@
 conn.setAutoCommit(false);
 
 conn.commit;
+
+//20191104 파일입출력게시판
+1. 커넥션풀 세팅 
+- 아파치 Common 사이트에서 Collection, DBCP, Pool을 다운로드 , jar파일을 web-inf의 lib에 집어넣는다.
+- 아파치 tomcat 사이트에서 8.5버전(톰켓버전에 맞는)api로 간후 JDBC dataSource로 들어가 오라클 버전에 맞는 부분을 찾아 진행한다.
+- 서버의 1. web.xml와 2.context.xml를 알맞게 수정한 후 3. ConnectionProvider 즉 원래 디비에 접속할 정보를 가지고 있는 부분을 수정한다. 
+( 수정한 뒤면 context.xml에 Id, password, url등이 적혀있게된다.) 
+
+2. 파일 입출력 세팅 
+- 아파치 Common 사이트에서 IO와 FileUpload를 다운받아 jar파일을 web-inf의 lib에 집어넣는다.
+
+3. 리스너 세팅
+- 웹 어플리케이션이 시작되거나 종료될때 호출을 한다. 
+- ServletContextListener 인터페이스를 상속 받는다. 
+- 스프링에서 자주 쓰인다.
+
+4. not null인 필드와 아닌 필드가 혼합된 테이블의 경우, insert시  not null인 필드를 명시해서 넣어야 한다.
+ex) String sql = "insert into board(board_number, writer, subject, email, content, password, write_date, read_count, group_number, sequence_number, sequence_level)"
+				  +" values (board_board_number_seq.nextval, ?,?,?,?,?,?,?,?,?,?)";
+				  
+5.   

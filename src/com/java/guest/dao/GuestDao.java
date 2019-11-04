@@ -210,26 +210,5 @@ public class GuestDao {
 		return check;
 	}
 
-	public int delBoard(int boardNumber) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		int check = 0;
-		
-		try {
-			String sql ="DELETE FROM board WHERE board_number= ?";
-			conn = ConnectionProvider.getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, boardNumber);
-			check = pstmt.executeUpdate();				
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		finally {
-			jdbcUtil.close(pstmt);
-			jdbcUtil.close(conn);
-		}	
-		
-		return check;
-	}		
+	
 }

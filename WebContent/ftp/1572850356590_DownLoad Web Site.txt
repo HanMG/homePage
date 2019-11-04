@@ -1,0 +1,44 @@
+*** DownLoad Site ******
+
+1. UML 
+            	1-1) starUML5.0 : https://sourceforge.net/projects/staruml/
+             
+ 	1-2) StarUML3 : http://staruml.io/ 
+
+
+2. 웹 프로그래밍
+
+	2-1) JDK : https://www.oracle.com/technetwork/java/index.html
+
+	2-2) Java Tool : https://www.eclipse.org/
+
+	2-3) Web Server : http://tomcat.apache.org/
+
+
+3. HTML, CSS, JavaScript, JQuery, Ajax 도움말 사이트
+	
+	3-1) https://www.w3schools.com/
+             3-2) 칼라질라 : http://www.colorzilla.com/gradient-editor/
+
+
+4. JAVA API	
+	4-1) EE : https://javaee.github.io/javaee-spec/javadocs/
+              4-2) SE : https://docs.oracle.com/en/java/javase/13/docs/api/java.base/module-summary.html
+
+5. JSTL
+   	5-1) down :  http://tomcat.apache.org/taglibs
+              5-2) API :  https://docs.oracle.com/cd/E17802_01/products/products/jsp/jstl/1.1/docs/tlddocs/index.html
+
+
+
+8. 우편번호 검색
+
+	8-1) http://postman.pe.kr/
+
+10.  커넥션 풀 
+
+http://commons.apache.org/
+- collections
+- DBCP
+- pool 
+다운로드

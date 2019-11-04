@@ -1,4 +1,4 @@
-package com.java.board.command;
+package com.java.fileboard.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +18,7 @@ public class DeleteAction implements CommandAction {
 		request.setAttribute("check", check);
 		request.setAttribute("pageNumber", pageNumber);	
 	
-		return "/WEB-INF/views/board/delete.jsp";
+		return "/WEB-INF/views/fileBoard/delete.jsp";
 	}
 
 }

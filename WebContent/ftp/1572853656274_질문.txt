@@ -1,0 +1,149 @@
+@ java로 할 수 있는 프로그램
+
+- 윈도우 어플, 웹 어플, 모바일 어플
+
+@ 컴파일러 언어와 스크립트 언어의 차이
+- 컴파일러는 한 줄 오류 생기면 오류가 생긴 곳에서 멈춤
+- 스크립트 언어는 오류 생긴 줄만 비실행하고 끝까지 실행
+
+@ 컴파일러 언어는 대소문자를 구분, 컴파일러를 커치면 대문자로 치환
+
+@ URI, URL, URN
+- URI : Uniform Resource Identifier
+- URL : Uniform Resource Locator
+- URN : Uniform Resource Name
+
+@ 자료형
+정수
+- byte 1, short 2, int 4, long 8
+실수
+- float 4, double 8
+문자
+- char 2
+
+@자료형이 없는 값은 운영체제에 맞춰 들어감
+- 32bit => 4byte
+- 64bit => 8byte
+
+@ 이벤트, 이벤트 처리함수, 이벤트 핸들러
+- 이벤트
+- 이벤트 처리함수
+- 이벤트 핸들러
+
+@ DS(data segment)
+constant 영역 - 프로그램이 종료 될때까지 살아있음, ( 전역변수, static 변수 )
+heap 영역 - 자바 가비지 콜렉터,  stack과 연관
+stack 영역 - 메모리에서 사라졌다 죽었다 반복한다. ( 지역변수 )
+register 영역 - 속도를 빠르게 한다. 자바에서 안쓴다. C언어 임베디드에 쓰임 ( register int x = 10;)
+
+@ 웹 범위
+page
+request
+session
+application
+
+@연산자 우선순위
+
+@ request 함수 외울거
+request.setCharacterEncoding("utf-8"); // 한글설정
+request.getParameter("name"); // 파라미터 읽기
+request.getConetextPath(); // context 정보 ex. /webTesting
+request.getServletPath(); // 현재 서블릿의 풀패키지명
+request.getRequestURL(); // http:/~~~~~~~ 서블릿
+request.getRequestURI(); // /webTesting ~~ 서블릿
+
+RequestDispatcher rd = request.getRequestDispatcher("/com/java/mvc01/Example05_Sub");
+rd.include(request, response);  // 해당 페이지 호출 후  다시 호출한 곳으로 돌아온다. //include, forward 이동을 위해
+
+@ response 함수 외울거
+response.setContentType("text/html;charset=utf-8");
+PrintWriter out = response.getWriter();
+response.sendRedirect("");
+
+@ 이동
+
+서버 - 서버 : sendRedirect, / include, forward
+서버 - 뷰 : location.href
+뷰 - 뷰 : a(href), location.href
+
+@ Iterator
+
+
+@ DecimalFormat
+
+
+@ UpCasting, DownCasting
+AA{}
+BB extends AA{}
+AA a = new AA();
+AA b = new BB(); //  부모는 자식을 담을 수 있다. (UpCasting)
+BB su = (BB) b; // 부모에 한번 담긴 자식은 다시 자기 자신으로 올 수 있다. (DownCasting)
+
+ex) 
+String str = new String("apple");
+Object obj = str;
+String value = (String)obj;
+
+@ Cookie
+Cookei cookie = new Cookie(key, value);
+cookie.setMaxAge(60*20); // 20분 수명
+response.addCookie(cookie); // 사용자 웹브라우저의 쿠키폴더에 저장
+Cookie[] cookies = response.getCookies()로 쿠키배열을 가져오고
+cookies[i].getName() 으로 키값
+cookies[i].getValue() 으로 내부 값을 가져옴
+setMaxAge(0) // 수명을 0으로 만들어 제거
+
+@ Session
+session.setAttribute(name, value); 로 받아온 값을 입력
+session.setMaxInactiveInterval(60*20); 으로 수명 설정
+session.getAttribute로 값을 가져오는데 object로 가져옴, 그러므로 DownCasting해줘야함
+session.invalidate()로 제거 
+
+@JSTL, EL
+서블릿으로 생성.
+
+// JSTL 선언
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+// 출력
+<c:out value="JSTL연습입니다."/><br /> 
+
+// 변수 선언 , scope로 범위 구분
+<c:set var="name" value="김은솔" scope="page" /> 
+<c:set var="age" value="25"/> 
+
+<%-- EL(Expression Language) --%>
+<c:out value="${name}"/><br />
+<c:out value="${age}"/>
+<c:out value="${age+10}"/>
+<c:out value="${age > 10}"/>
+
+
+<h3>변수 제거</h3>
+<c:remove var="name"/>
+<%-- EL은 NULL에러를 발생시키지 않는다. --%>
+이름: <c:out value="${name}"/>
+
+@커넥션풀
+
+
+@ Collection ( List, map, set )
+
+@ String .split
+
+@자바 특징
+
+
+객체
+
+싱글톤
+
+함수, 메소드
+
+오버로딩, 오버라이딩
+
+
+자바에서 시간찍기
+2009.10.21 00:00:00  <-- rs.getDate()
+1970.01.01 01:15:38  <-- rs.getTime()
+2009.10.21 01:15:38  <-- rs.getTimestamp()

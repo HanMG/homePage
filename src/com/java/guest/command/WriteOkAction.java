@@ -21,7 +21,7 @@ public class WriteOkAction implements CommandAction {
 
 	@Override
 	public String proRequest(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		request.setCharacterEncoding("utf-8");
+		//request.setCharacterEncoding("utf-8");
 		GuestDto guestDto = new GuestDto();
 		guestDto.setName(request.getParameter("irum"));
 		guestDto.setPassword(request.getParameter("pwd"));

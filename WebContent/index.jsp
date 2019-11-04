@@ -10,7 +10,7 @@
 <style>
 	* {box-sizing: border-box;}
 	#nav {text-align: center; margin-bottom: 20px; overflow:hidden; margin:0 auto;}
-	#nav div {float: left; width: 33%;}
+	#nav div {float: left; width: 25%;}
 </style>
 </head>
 <body>
@@ -39,6 +39,10 @@
 		<div>
 			<h3>게시판</h3>
 			<a href="${root}/board/write.do">게시판 작성</a> <a href="${root}/board/list.do">목록보기</a>
+		</div>
+		<div>
+			<h3>파일게시판</h3>
+			<a href="${root}/fileBoard/write.do">파일게시판 작성</a> <a href="${root}/fileBoard/list.do">목록보기</a>
 		</div>
 	</div>
 	<!--	
